@@ -103,6 +103,7 @@ Returns a `Client` instance and perform login.
    * (microsoft account) the path to store authentication caches, defaults to .minecraft
  * onMsaCode(data) : (optional) callback called when signing in with a microsoft account
  with device code auth. `data` is an object documented [here](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-device-code#device-authorization-response)
+ * onLoginPluginRequest(packet, meta) : (optional) callback that is called when a `login_plugin_request` packet is received. When this option is defined and of type function then the callback is called and expected to write a `login_plugin_response` packet on client with at least `messageId: packet.messageId` in the payload. If no login_plugin_response is send the connection will halt. When the `onLoginPluginRequest` option is not defined or not of type function then a login_plugin_response packet with `messageId: packet.messageId` and no data is send.
 
 
 ## mc.Client(isServer,version,[customPackets])

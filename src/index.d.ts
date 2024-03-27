@@ -51,6 +51,7 @@ declare module 'minecraft-protocol' {
 		agent?: Agent
 		auth?: 'mojang' | 'microsoft'
 		id?: number
+		onLoginPluginRequest?: (packet: any, meta: any, ...args: any[]) => void
 	}
 
 	export class Server extends EventEmitter {
